@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
-  
+
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -17,19 +17,42 @@
 </head>
 
 <body>
-  <!--pantalla de autenticación
-  agregar autenticaciones para usuario y contraseñas (campos no vacios)
-  Redirecciónar al sitio de portada cuando presione el botón de ingresar
-  Plus para que quede más bonito, tengo la imagen del logo de e-comerce en la carpeta de img
-  Centrar todo-->
 
-  <main class="mt-5">
+  <!--Alerta Funcionalidad en desarrollo
+    <main class="mt-5">
     <div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div>
     </div>
   </main>
+  -->
+
+  <div id="logotipo">
+    <center><img src="img/login.png" alt="logo" id="logo" width="262px"></center>
+    
+  </div>
+  <div id="formulario" class="form-group text-center">
+    <!--Estoy buscando aún terminar de entender la clase form-group, pero funciona-->
+
+    <div>
+      <legend>Usuario</legend>
+      <input type="email" id="email_addr" name="direccion-correo" required placeholder="Escriba aquí su email"
+        size="30" />
+      <!-- type="email" indica que el contenido ingresado debe ser un email valido, tener formato de email-->
+    </div>
+    <div>
+      <legend>Contraseña</legend>
+      <input type="password" id="password" name="contrasenia" placeholder="Escriba aquí su contraseña" size="30">
+      <!--type="password" los caracteres ingresados en este campo quedan ocultos, se convierten en puntos-->
+    </div>
+    <div>
+      <button onclick="redireccionar()">Ingresar</button><!--este boton redirecciona a portada.html-->
+    </div>
+  </div>
+
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -40,7 +63,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <script src="js/login.js"></script>
+ <script src="js/login.js"></script>
 </body>
 
 </html>
