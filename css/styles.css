@@ -156,12 +156,23 @@ footer p {
     transform: rotate(360deg);
   }
 }
-
+/*registrarse*/
 .signin {
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
+}
+/*logo en la pagina de registro*/
+#logo{
+  margin:auto;
+  margin-top: 30%;
+  max-width: 300px;
+}
+/*botón de ingresar en la pagina de registro*/
+#boton {
+  padding-top: 30px;
+  border-color: bisque;
 }
 
 #spinner-wrapper {
@@ -188,3 +199,4 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
