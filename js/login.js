@@ -9,6 +9,16 @@ function redireccionar(){
         window.location.href = "portada.html";
     }
 }
+//gurdar en el localStorage email
+function setEmail (email){
+    localStorage.setItem ("email",email)
+}
 
-//necesito guardar en el localStorage el objeto/valor de email
-//para recuperarlo en la barra de navegación, aparezca a la derecha siempre 
+document.getElementById("boton").addEventListener("click",function(){
+    setEmail(email.value)
+    redireccionar()
+})
+
+
+
+
