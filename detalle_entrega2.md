@@ -1,13 +1,13 @@
 Para esta entrega necesito:
 
-1.  # En la barra de navegación, agregar en la esquina derecha el nombre del usuario (email) ingresado en la pantalla de inicio de sesión. Para ello deberás hacer uso del almacenamiento local.
+1.  # Agregar el email.
+En la barra de navegación, agregar en la esquina derecha el nombre del usuario (email) ingresado en la pantalla de inicio de sesión. Para ello deberás hacer uso del almacenamiento local.
 -   localStorage.setItem para guardar el dato al momento de registrarse (botón Ingresar) 
 -   localStorage.getItem en init.js que es el doc js que comparten todos los html
 recuperEmail() recupera el dato y lo coloca en el contenedor dentro de la lista de items en la barra de navegación <!--le puse el mismo id a el último item vacio en todos los html-->
 --------------------------------------------------------------------------------
 
-Mi código ya mostraba el contenido de la correspondiente a la categoria seleccionada
-cuando redirige a products.html
+
 2. # <!--ESTO YA LO HABÍA RESULETO DESDE LA ENTREGA 1)-->
 -Cuando el usuario selecciona una categoría de productos,
  su identificador es guardado en el almacenamiento local
@@ -16,7 +16,8 @@ cuando redirige a products.html
  (que hicimos en la entrega anterior) para que utilice
  ese identificador, en lugar de 101.
 -----------------------------------------------------------------------------
-
+Mi código ya mostraba el contenido de la correspondiente a la categoria seleccionada
+cuando redirige a products.html
 3.  # Con el listado de productos desplegado: FILTRAR Y ORDENAR
 -   Aplicar filtros a partir de rango de precio definido.
 -   Agregar las funcionalidades de orden ascendente y descendente en función del precio y descendente en función de la relevancia (tomaremos para ello la cantidad de artículos vendidos)
