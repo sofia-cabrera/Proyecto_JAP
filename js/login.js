@@ -9,16 +9,15 @@ function redireccionar(){
         window.location.href = "portada.html";
     }
 }
+
 //gurdar en el localStorage email
+
 function setEmail (email){
     localStorage.setItem ("email",email)
 }
 
+//escucha de evento al votón de ingresar para que guarde el email y redireccione
 document.getElementById("boton").addEventListener("click",function(){
     setEmail(email.value)
     redireccionar()
 })
-
-
-
-
