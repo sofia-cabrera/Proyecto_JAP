@@ -15,7 +15,7 @@ let listadoDeProductos = [];/*declaro uan array vacia para poner dentro los dato
 //reutilicé el código de categorias, y no quise desaprovechar cosas que ya me quedaban
 //eso incluye la función setProductID, que me permite redirigir a la info del producto cuando haga click
 function setProductID(id) {
-    localStorage.setItem("ProductID", id);
+    localStorage.setItem("productID", id);
     window.location = "product-info.html"//funcionalidad en desarrollo
 }
 
