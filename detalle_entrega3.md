@@ -4,15 +4,21 @@ Modifica products.html para que cada vez que el usuario seleccione un producto, 
 
 2. # 
 Haciendo uso del identificador guardado en el punto anterior, realiza la solicitud adecuada para obtener la información de dicho producto y preséntala en product-info.html
------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
-3. 
+3. #
 Haz la solicitud necesaria para obtener la lista de comentarios de cada producto y muéstralos debajo de lo realizado en el punto anterior (con su puntuación, usuario y fecha).
------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
-4. 
+4. #
 Agrega los controles gráficos necesarios para poder realizar un nuevo comentario con su puntuación (no se implementará el envío al servidor).
------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 ¡Desafíate!
 Si bien el comentario ingresado no será enviado a ningún servidor, cuando se simule el envío del mismo, intenta agregarlo cómo un comentario más de los mostrados referentes al producto.
+
+Al hacer click en el botón enviar:
+-traigo el user del localStorage
+-traigo el id de producto del localStorage, solo me lo muestre en el producto indicado o solo lo imprima..
+-necesito que se imprima la fecha la hora en la que se hace click
+-la puntuación se ingrese como un número ya tengo la función que convierte score en estrellas

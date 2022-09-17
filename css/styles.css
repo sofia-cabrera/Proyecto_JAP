@@ -214,6 +214,42 @@ a.custom-card:hover {
   text-decoration: inherit;
 }
 
+/*estilo estrellas puntuación*/
 .checked {
   color: orange;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+span {
+  color: grey;
+}
+label {
+  color: grey;
+}
+
+.clasificacion {
+  text-align: left;
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+.puntua:hover,
+.puntua:hover ~ label {
+  color: orange;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked ~ label.puntua {
+  color: orange;
+}
+
+.clasificacion {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }

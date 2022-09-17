@@ -16,7 +16,7 @@ function setEmail (email){
     localStorage.setItem ("email",email)
 }
 
-//escucha de evento al votón de ingresar para que guarde el email y redireccione
+//escucha de evento al botón de ingresar para que guarde el email y redireccione
 document.getElementById("boton").addEventListener("click",function(){
     setEmail(email.value)
     redireccionar()
