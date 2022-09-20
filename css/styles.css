@@ -226,6 +226,7 @@ input[type="radio"] {
 span {
   color: grey;
 }
+
 label {
   color: grey;
 }
@@ -253,3 +254,4 @@ input[type="radio"]:checked ~ label.puntua {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+

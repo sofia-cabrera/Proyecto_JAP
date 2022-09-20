@@ -13,42 +13,22 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="portada.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-            <div class="nav-link" id="containerEmail"></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   
-
+  <div id="navBar"></div>
+  
   <main>
     <div class="container">
-      <div class="container" id="product-info"><!--Acá meto la info del producto-->
+
+      <div class="container" id="product-info">
+        <!--Acá meto la info del producto-->
       </div>
+      
       <div class="row mt-5"><h3>Comentarios</h3>
         <div class="list-group" id="product-comments"><!--acá los comentarios-->
         </div>
       </div>
-      <div class="container">
+
+      <div class="container" id="controlesAgregarComentario">
         <div class="row mt-5"><h3>Comentar</h3>
         <div class="row" id="agregar-comentario">
           <div>
@@ -64,11 +44,11 @@
             <div id="contengoPuntuacionConEstrellas">
               <label class="mt-2">Tu puntuación</label>
               <p class="mt-2 clasificacion">
-                <input id="5radio" onclick="calificar(this)" type="radio" name="estrellas" value="5"><label  for="5radio"class="fas fa-star puntua"></label>
-                <input id="4radio" onclick="calificar(this)" type="radio" name="estrellas" value="4"><label  for="4radio"class="fas fa-star puntua"></label>
-                <input id="3radio" onclick="calificar(this)" type="radio" name="estrellas" value="3"><label  for="3radio"class="fas fa-star puntua"></label>
-                <input id="2radio" onclick="calificar(this)" type="radio" name="estrellas" value="2"><label  for="2radio"class="fas fa-star puntua"></label>
-                <input id="1radio" onclick="calificar(this)" type="radio" name="estrellas" value="1"><label  for="1radio"class="fas fa-star puntua"></label>
+                <input id="5radio" onclick="calificar(this)" type="radio" name="estrellas" value="5"><label  for="5radio" class="fas fa-star puntua"></label>
+                <input id="4radio" onclick="calificar(this)" type="radio" name="estrellas" value="4"><label  for="4radio" class="fas fa-star puntua"></label>
+                <input id="3radio" onclick="calificar(this)" type="radio" name="estrellas" value="3"><label  for="3radio" class="fas fa-star puntua"></label>
+                <input id="2radio" onclick="calificar(this)" type="radio" name="estrellas" value="2"><label  for="2radio" class="fas fa-star puntua"></label>
+                <input id="1radio" onclick="calificar(this)" type="radio" name="estrellas" value="1"><label  for="1radio" class="fas fa-star puntua"></label>
               </p>
             </div>
             
@@ -79,7 +59,16 @@
         </div>
       </div>
       </div>
-      
+
+      <div class="container col-12"  >
+        <div class="container">
+         <hr>
+          <h3>Productos relacionados</h3> 
+        </div>
+        <div class= "row" id="produtosRelacionados">
+        </div>
+      </div>
+
     </div>
   </main>
   <footer class="text-muted">

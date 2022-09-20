@@ -12,12 +12,11 @@ let actualCriterioOrden = undefined;
 let search = "";
 let listadoDeProductos = [];/*declaro uan array vacia para poner dentro los datos que obtengo*/
 
-//reutilicé el código de categorias, y no quise desaprovechar cosas que ya me quedaban
-//eso incluye la función setProductID, que me permite redirigir a la info del producto cuando haga click
+//función setProductID, que me permite redirigir a la info del producto cuando haga click
 function setProductID(id) {
     localStorage.setItem("productID", id);
-    window.location = "product-info.html"//funcionalidad en desarrollo
-}
+    window.location = "product-info.html"
+};
 
 function mostrarProductos() {
     let htmlContentToAppend = "";
@@ -48,12 +47,12 @@ function mostrarProductos() {
                         </div>
                     </div>
                 `
-            }
-        }
+            };
+        };
 
     document.getElementById("product-list").innerHTML = htmlContentToAppend;
-    }
-}
+    };
+};
 
 
     
@@ -75,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
             mostrarProductos();
         } else {
             alert("no se puede mostrar el contenido");
-        }
-    })
+        };
+    });
 
     document.getElementById("sortByPrecioDesc").addEventListener("click", function(){
         listadoDeProductos.sort(function(a, b) {
