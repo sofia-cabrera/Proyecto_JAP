@@ -20,7 +20,7 @@
     function onSignIn(googleUserContent){
       localStorage.setItem("UserName", googleUserContent.getBasicProfile().getName());
       gapi.auth2.getAuthInstance().signOut();
-      window.location.href="index.html"
+      window.location.href="portada.html"
     }
   </script>
   <title>eMercado - Todo lo que busques está aquí</title>

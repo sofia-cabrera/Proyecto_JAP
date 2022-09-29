@@ -56,3 +56,6 @@ Para simplificar el código:
 
 -coloqué las img en un carrusel a la derecha de la de la info 
 -----------------------------------------------------------
+
+
+
