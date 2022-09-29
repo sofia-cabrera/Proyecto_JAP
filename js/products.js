@@ -64,6 +64,7 @@ que lo hace a traves de un string en el cual va cargando cada uno de los element
 recorriendo el array con un for
 y luego con dom los va dibujando en pantalla*/
 document.addEventListener("DOMContentLoaded", function () {
+    navBar();
     recuperarEmail();//del localStorage y los coloca en la esquina sup derecha
 
     getJSONData(listaPRODUCTO_URL).then(resultObj => {

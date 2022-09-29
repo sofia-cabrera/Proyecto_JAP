@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
+    navBar();
     recuperarEmail();
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);

@@ -9,34 +9,16 @@ Mostar los productos relacionados
 2.  #
 Convierte el nombre del usuario en un menú desplegable
     (manteniendo el nombre de usuario cómo botón)
-<!--Debo trabajo desde init.js proque es el que comparten todos los html que tienen barra
-de navegación-->
+<!--trabajo desde init.js proque es el que comparten todos los html que tienen barra
+de navegación así no tengo que repetir el código en todos mis documentos-->
 
 
 agrega allí las opciones:
-    -Mi carrito y que al seleccionarla redirija a esa pantalla (trabajaremos sobre esta página en una futura entrega).
-    -Mi perfil y que al seleccionarla redirija a esa pantalla (trabajaremos sobre esta página en una futura entrega)
+    -Mi carrito y que al seleccionarla redirija a esa pantalla
+    -Mi perfil y que al seleccionarla redirija a esa pantalla
     -Cerrar sesión, que deberá redirigir a la pantalla de inicio de sesión, borrando el usuario autenticado.
 -----------------------------------------------------------------
-
-3.  #
-¡Desafíate!
-¿Te gustaría que la página de información del producto sea un poco más dinámica? puedes usar un carrusel para mostrar las imágenes
-----------------------------------------------------------------
-
-
-
-Extra:
-
-En product-info me llevé la barra de navegación a el init, la use en una función (navBar()) y la meto por con Dom aun div en el html con id="nabBar";
-luego al momento de cargar cada pagina llamo a la función y listos
-
-
-
-
-
-
-# estructura para el menú desplegable
+# menú desplegable
 
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="simpleDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,3 +32,27 @@ luego al momento de cargar cada pagina llamo a la función y listos
 </div>
 
 
+
+
+    
+
+
+3.  #
+¡Desafíate!
+¿Te gustaría que la página de información del producto sea un poco más dinámica? puedes usar un carrusel para mostrar las imágenes
+----------------------------------------------------------------
+
+
+
+4. # Extra:
+Para simplificar el código:
+- En product-info me llevé la barra de navegación a el init, la puse en una función (navBar())
+- la meto por con Dom a un div en el html con id="nabBar";
+- luego al momento de cargar cada pagina llamo a la función y listos
+- sustituí eso en todos los html y llame la función en los js
+- esa navBar ya tiene incluido el menú desplegable en el usuario que permite ir al carrito, al   perfil, o cerrar sesión
+
+-quite el titulo imagenes ilustrativas y lo dejé como un title de las imagenes a mostrar, solo se ve cuando colocas el cursor sobre las img, marquetineramente no es bueno
+
+-coloqué las img en un carrusel a la derecha de la de la info 
+-----------------------------------------------------------

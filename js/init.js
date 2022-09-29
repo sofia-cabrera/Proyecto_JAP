@@ -69,7 +69,7 @@ function navBar(){
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item" href="cart.html">Carrito</a></li>
                   <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
-                  <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+                  <li><a onclick="cerrarSesion()" class="dropdown-item" href="index.html">Cerrar sesión</a></li>
                 </ul>
             </div>
           </li>
@@ -89,4 +89,8 @@ function recuperarEmail (){
     console.log(email);
     document.getElementById ("containerEmail").innerHTML= email;
   };
+};
+
+function cerrarSesion(){
+  localStorage.removeItem("email");
 };

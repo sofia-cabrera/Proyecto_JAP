@@ -14,35 +14,53 @@ let nuevoProductID ="";
 
 function mostrarInfo() {
     let htmlContentToAppend = "";
-
+    //
+    //<div id="contengoImg" class="col-6"></div>
     htmlContentToAppend +=
-        `<div>
-        <div class="container mt-5" id="name">
-            <h1>${producto.name}</h1>
-            <hr>
-        </div>
-        <div class="container" id="cost">
-            <b>Precio</b>
-            <p>${producto.currency}-${producto.cost}</p>
-        </div>
-        <div class="container" id="descrption">
-            <b>Descripción</b>
-            <p>${producto.description}</p>
-        </div>
-        <div class="container" id="category">
-            <b>Categoria</b>
-            <p>${producto.category}</p>
-        </div>
-        <div class="container" id="soldCount">
-            <b>Cantidad de vendidos</b>
-            <p>${producto.soldCount}</p>
-        </div>
-        <div class="container">
-            <b>Imágenes ilustrativas</b>
-            <div class="row mt-3" id="imagenes">
+        `
+        
+        <div class="row">
+            
+            <div id="contengoTexto" class="col-6">
+                <div class="mt-5" id="name">
+                    <h1>${producto.name}</h1>
+                    <hr>
+                </div>
+                <div class="container" id="cost">
+                    <b>Precio</b>
+                    <p>${producto.currency}-${producto.cost}</p>
+                </div>
+                <div class="container" id="descrption">
+                    <b>Descripción</b>
+                    <p>${producto.description}</p>
+                </div>
+                <div class="container" id="category">
+                    <b>Categoria</b>
+                    <p>${producto.category}</p>
+                </div>
+                <div class="container" id="soldCount">
+                    <b>Cantidad de vendidos</b>
+                    <p>${producto.soldCount}</p>
+                </div>
+            </div>    
+            <div id="contengoImg" class="col-6 pt-5 mt-5">
+                <div class="container" id="contengoCarrusel">
+                    <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="imagenes">
+                        </div>
+                        <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                        
+                    </div>
+                </div> 
             </div>
-        </div>
-    </div>`;
+        </div>`;
     document.getElementById("product-info").innerHTML = htmlContentToAppend;
 };
 
@@ -50,9 +68,14 @@ function mostrarImagenes() {
     let imgToAppend = "";
     for (let i = 0; i < arrayImagenes.length; i++) {
         let imagen = arrayImagenes[i];
-        imgToAppend += `<img class="col-lg-3 rounded" src="${imagen}" alt="${producto.name}" title="${producto.name}">`
+        imgToAppend += `
+        <div class="carousel-item${(i==1 ? " active" : "")}">
+        <img class="d-block w-100" src="${imagen}" alt="${producto.name}" title="*imagenes ilustrativas">
+        </div>
+        `
         document.getElementById("imagenes").innerHTML = imgToAppend;
-    }
+    };
+
 };
 
 function recibeScoreDevuelveEstrellas(cantidad) {
