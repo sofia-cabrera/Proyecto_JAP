@@ -64,7 +64,6 @@ function navBar(){
           <li>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="containerEmail" data-bs-toggle="dropdown" aria-expanded="false">
-                menú
               </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item" href="cart.html">Carrito</a></li>

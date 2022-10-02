@@ -122,8 +122,10 @@ function mostrarProductosRelacionados() {
         let productoRelacionado = arrayProductosRelacionados[i];
         let nuevoProductID= productoRelacionado.id.value
         productosRelacionadosToAppend += `
-            <div onclick= "setNuevoProductID(${productoRelacionado.id})" class="card list-group-item-action cursor-active" style="width: 18rem;">
-                <img class="card-img-top mt-3" src=${productoRelacionado.image} alt=${productoRelacionado.name}>
+            <div onclick= "setNuevoProductID(${productoRelacionado.id})" 
+            class="card list-group-item-action cursor-active" style="width: 18rem;">
+                <img class="card-img-top mt-3" src=${productoRelacionado.image}
+                alt=${productoRelacionado.name}>
                 <div class="card-body">
                     <p class="card-text">${productoRelacionado.name}</p>
                 </div>

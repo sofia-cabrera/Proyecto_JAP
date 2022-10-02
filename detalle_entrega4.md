@@ -47,15 +47,12 @@ agrega allí las opciones:
 4. # Extra:
 Para simplificar el código:
 - En product-info me llevé la barra de navegación a el init, la puse en una función (navBar())
-- la meto por con Dom a un div en el html con id="nabBar";
+- la meto con Dom a un div en el html con id="nabBar";
 - luego al momento de cargar cada pagina llamo a la función y listos
 - sustituí eso en todos los html y llame la función en los js
-- esa navBar ya tiene incluido el menú desplegable en el usuario que permite ir al carrito, al   perfil, o cerrar sesión
-
--quite el titulo imagenes ilustrativas y lo dejé como un title de las imagenes a mostrar, solo se ve cuando colocas el cursor sobre las img, marquetineramente no es bueno
-
--coloqué las img en un carrusel a la derecha de la de la info 
------------------------------------------------------------
-
-
+- esa navBar ya tiene incluido el menú desplegable en el usuario que permite ir al carrito, al perfil, o cerrar sesión
+- quite el titulo imagenes ilustrativas y lo dejé como un title de las imagenes a mostrar, solo se ve cuando colocas el cursor sobre las img, marquetineramente no es bueno
+- coloqué las img en un carrusel a la derecha de la de la info 
+-empecé a trabajar para lograr el desafío de la autenticación con google aún sin exito
+---------------------------------------------------------------
 
