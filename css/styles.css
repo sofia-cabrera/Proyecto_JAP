@@ -174,7 +174,7 @@ footer p {
 
 /*botón de ingresar en la pagina de registro*/
 #boton {
-  margin:auto;
+  margin: auto;
   max-width: 90px;
   margin-top: 30px;
   /* Color del texo */
@@ -182,7 +182,7 @@ footer p {
   color: #0099CC;
   /* color de fondo */
 
-  background:rgba(112, 121, 187, 0.544);
+  background: rgba(112, 121, 187, 0.544);
   /* Grosor del borde, estilo de línea y color */
 
   border: 2px solid #3d205a55;
@@ -219,7 +219,7 @@ a.custom-card:hover {
   color: orange;
 }
 
-input[type="radio"] {
+input[name="estrellas"] {
   display: none;
 }
 
@@ -238,12 +238,12 @@ label {
 }
 
 .puntua:hover,
-.puntua:hover ~ label {
+.puntua:hover~label {
   color: orange;
   cursor: pointer;
 }
 
-input[type="radio"]:checked ~ label.puntua {
+input[type="radio"]:checked~label.puntua {
   color: orange;
 }
 
@@ -257,7 +257,7 @@ input[type="radio"]:checked ~ label.puntua {
 
 
 /*estilo constroles del carrusel*/
-.carousel-control  {
+.carousel-control {
   top: 50%;
   width: 50px;
   height: 50px;
@@ -265,4 +265,29 @@ input[type="radio"]:checked ~ label.puntua {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   transition: all .3s;
+}
+
+.inputsize {
+  width: 50%;
+}
+
+hr.negrito {
+  margin: 5px;
+  border: none;
+  height: 2px;
+  background: black ;
+  opacity: 1;
+}
+
+hr.divisor {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: none;
+  background: black ;
+  opacity: .25;
+}
+
+hr.separador{
+  opacity: .75;
+  margin-bottom: 15px;
 }

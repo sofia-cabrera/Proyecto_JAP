@@ -14,8 +14,7 @@ let nuevoProductID ="";
 
 function mostrarInfo() {
     let htmlContentToAppend = "";
-    //
-    //<div id="contengoImg" class="col-6"></div>
+
     htmlContentToAppend +=
         `
         
@@ -145,6 +144,10 @@ function mostrarTodo() {
     mostrarImagenes();
     mostrarComentarios();
     mostrarProductosRelacionados();
+};
+
+function agregarAlCarrito() {
+   //ACA ME QUEDÉ intentando agreagr un prducto al carrito
 };
 
 document.addEventListener("DOMContentLoaded", function () {
