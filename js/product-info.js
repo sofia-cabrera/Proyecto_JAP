@@ -162,13 +162,10 @@ function mostrarTodo() {
 
 function agregarAlCarrito() {
     let cantidad = 1;
-
     for (let i = 0; i < articulosNuevos.length; i++) {
-        let articulo = articulosNuevos[i];
-        if (articulo.id == producto.id) {
-
+        let articuloNuevo = articulosNuevos[i];
+        if (articuloNuevo.id == producto.id) {
             cantidad = articulosNuevos[i].count + 1;
-            console.log("aydua", articulosNuevos[i].count, cantidad);
             articulosNuevos[i].count = cantidad;
             setArticulosNuevos();
         }
@@ -204,6 +201,7 @@ function recuperarArticulosNuevos() {
 document.addEventListener("DOMContentLoaded", function () {
     navBar();
     recuperarEmail();//del localStorage y los coloca en la esquina sup derecha
+    recuperarArticulosNuevos();
 
     getJSONData(PRODUCT_INFO_URL_SOLICITUD).then(resultObj => {
         //console.log("infoProducto " + PRODUCT_INFO_URL_SOLICITUD)
@@ -242,12 +240,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
-
-    if (!localStorage.getItem("articulosNuevos")) {
-        setArticulosNuevos();
-    } else {
-        recuperarArticulosNuevos();
-    }
 
 });
 

@@ -12,16 +12,13 @@ Incluir los controles gráficos necesarios para seleccionar tipo de envío y dir
 Modificar el subtotal de la compra del artículo, EN TIEMPO REAL, si se modifica la cantidad. Recuerda que el subtotal se calcula como el precio unitario del producto multiplicado por la cantidad.
 <!--necesito el value de ese campo, uso evento onchange o input para en el momento en el que cambie ocurra todo lo que tenga que suceder, llamo una función le paso de parametro el id y el value (this.value)-->
 
-4. # ¡Desafíate!
-
+4. # hecho ¡Desafíate!
 -Nuestro carrito de compras ya trae un producto precargado, pero para completar la funcionalidad de la página, haz que el usuario pueda agregar los productos que quiera al carrito.
-ESTO LO RESOLVÍ, AGREGANDO UN  BOTÓN EN LA INFO DEL PRODUCTO QUE TRAE LA LISTA DE PRODUCTOS SELECCIONADOS DEL LOCALSTORAGE AGREGA EL PRODUCTO NUEVO Y LA VUELVE A GUARDAR EN EL LOCAL
-
 -Todos deben mostrarse tal como el que viene del servidor, y también deben modificar su subtotal según varíe la cantidad.
 ESTO DESDE EL ALMACENAMIENTO LOCAL
 
 
-
+5. # Soluciones
 
 Agregar productos al carrito
 Al click en comprar se ejecuta agregarAlCarrito
@@ -29,17 +26,22 @@ Al click en comprar se ejecuta agregarAlCarrito
 - si está agrega 1 a la cantidad
 - si no está lo agrega a la lista
 - en todos los casos lo guarda en el localStorage
+- EXTRA botón que me devuelve a la pagina anterior, al listado
 
 Al carga cart.html
 - traer la info del json- falso servidor (getJSONData)
 - traer los productos que se guardaron en articulos nuevos
 - unificar las listas
-- guardarlos como articulos en el local
+- los guarda como articulos en el local
 
 Al cambiar la cantidad
 - se ejecuta cambiar count, que recibe el valor y la id del producto
-- recorre los procductos compara la id y caundo encuentra la coinicidencia modifica la cantidad
-- modifico en el array y luego actualizo la lista en pantalla
+- recorre los productos compara la id y caundo encuentra la coincidencia modifica la cantidad
+- guardo en el local la modificación y luego actualizo la lista en pantalla
 
+Quitar producto del carrito
 click en quitar
-- 
+- ejecuta quitarArticulo (recibe como parametro el articulo.id)
+- ahí con el metodo filter armo una nueva lista con todos los products que no tengan ese id
+- la guardo en el local
+- y vuelvo a mostrar los productos del carrito
