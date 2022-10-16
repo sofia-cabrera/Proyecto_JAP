@@ -10,10 +10,13 @@ let today = new Date();// crea un nuevo objeto `Date`
 let now = today.toLocaleString();// obtener la fecha y la hora
 //se imprime con una coma en medio pero es un detalle para otro día, creo podría resolverlo si traigo la hora y la fecha por separado
 let arrayProductosRelacionados = [];
-let nuevoProductID ="";
+let nuevoProductID = "";
+let articulosNuevos = [];
+
 
 function mostrarInfo() {
     let htmlContentToAppend = "";
+
 
     htmlContentToAppend +=
         `
@@ -21,10 +24,10 @@ function mostrarInfo() {
         <div class="row">
             
             <div id="contengoTexto" class="col-6">
-                <div class="mt-5" id="name">
+                <div class=" mt-5" id="nombreYbotonComprar">
                     <h1>${producto.name}</h1>
-                    <hr>
                 </div>
+                <hr>
                 <div class="container" id="cost">
                     <b>Precio</b>
                     <p>${producto.currency}-${producto.cost}</p>
@@ -42,7 +45,18 @@ function mostrarInfo() {
                     <p>${producto.soldCount}</p>
                 </div>
             </div>    
-            <div id="contengoImg" class="col-6 pt-5 mt-5">
+            
+            
+            <div id="contengoImg" class="container col-6 mt-5">
+                <div class="row">
+                    <div class="col-6 mb-3 ml-5 pl-5">
+                        <button onclick="agregarAlCarrito()" id="botonComprar" type="button" class="btn btn-success btn-lg">Comprar</button>
+                    </div>
+                    <div class="col-6 mb-3 text-end">
+                        <a class="btn btn-secondary bg-gradient" href="javascript: history.go(-1)" role= "button"><span class='fas fa-arrow-left'></span> Volver al listado</a>
+                    </div>
+                </div>
+                
                 <div class="container" id="contengoCarrusel">
                     <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner" id="imagenes">
@@ -68,7 +82,7 @@ function mostrarImagenes() {
     for (let i = 0; i < arrayImagenes.length; i++) {
         let imagen = arrayImagenes[i];
         imgToAppend += `
-        <div class="carousel-item${(i==1 ? " active" : "")}">
+        <div class="carousel-item${(i == 1 ? " active" : "")}">
         <img class="d-block w-100" src="${imagen}" alt="${producto.name}" title="*imagenes ilustrativas">
         </div>
         `
@@ -81,8 +95,8 @@ function recibeScoreDevuelveEstrellas(cantidad) {
     let score = "";
 
     for (i = 0; i < 5; i++) {
-        if (i < cantidad) score += "<span class='fas fa-star checked'></span>";
-        else score += "<span class='fas fa-star'></span>";
+        if (i < cantidad) score += "<span class=' fas fa-star checked'></span>";
+        else score += "<span class='star fas fa-star'></span>";
     }
     return score;
 };
@@ -119,7 +133,7 @@ function mostrarProductosRelacionados() {
 
     for (let i = 0; i < arrayProductosRelacionados.length; i++) {
         let productoRelacionado = arrayProductosRelacionados[i];
-        let nuevoProductID= productoRelacionado.id.value
+        let nuevoProductID = productoRelacionado.id.value;
         productosRelacionadosToAppend += `
             <div onclick= "setNuevoProductID(${productoRelacionado.id})" 
             class="card list-group-item-action cursor-active" style="width: 18rem;">
@@ -129,7 +143,7 @@ function mostrarProductosRelacionados() {
                     <p class="card-text">${productoRelacionado.name}</p>
                 </div>
             </div>
-        `
+        `;
     };
     document.getElementById("produtosRelacionados").innerHTML = productosRelacionadosToAppend;
 };
@@ -147,7 +161,44 @@ function mostrarTodo() {
 };
 
 function agregarAlCarrito() {
-   //ACA ME QUEDÉ intentando agreagr un prducto al carrito
+    let cantidad = 1;
+
+    for (let i = 0; i < articulosNuevos.length; i++) {
+        let articulo = articulosNuevos[i];
+        if (articulo.id == producto.id) {
+
+            cantidad = articulosNuevos[i].count + 1;
+            console.log("aydua", articulosNuevos[i].count, cantidad);
+            articulosNuevos[i].count = cantidad;
+            setArticulosNuevos();
+        }
+    }
+    if (cantidad == 1) {
+        let articulo = {
+            count: 1,
+            currency: producto.currency,
+            id: producto.id,
+            image: arrayImagenes[0],
+            name: producto.name,
+            unitCost: producto.cost
+        }
+
+        articulosNuevos.push(articulo);
+        setArticulosNuevos();
+    }
+    console.log(articulosNuevos);
+};
+
+function setArticulosNuevos() {
+    let articulos_json = JSON.stringify(articulosNuevos);
+    localStorage.setItem("articulosNuevos", articulos_json);
+};
+
+function recuperarArticulosNuevos() {
+    if (localStorage.getItem("articulosNuevos")) {
+        articulos_json = localStorage.getItem("articulosNuevos");
+        articulosNuevos = JSON.parse(articulos_json);
+    }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -191,7 +242,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
-    
+
+    if (!localStorage.getItem("articulosNuevos")) {
+        setArticulosNuevos();
+    } else {
+        recuperarArticulosNuevos();
+    }
+
 });
 
 

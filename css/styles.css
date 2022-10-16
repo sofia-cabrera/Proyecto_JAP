@@ -223,7 +223,7 @@ input[name="estrellas"] {
   display: none;
 }
 
-span {
+span.star {
   color: grey;
 }
 
