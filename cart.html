@@ -8,23 +8,26 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
+  
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
   <div id="navBar"></div>
+  
 
   <main>
+    
     <body>
       <div class="container">
-        <div class="mt-5 text-center">
+        <div class="mt-5 mb-5 text-center">
           <h1>Carrito de compras</h1>
         </div>
         <div>
           <h2>Articulos a comprar</h2>
         </div>
         <div class="container">
-          <div class="row mt-5">
+          <div class="row mt-4">
             <div class=" col-2"></div>
             <div class="fw-bold col-2">Nombre</div>
             <div class="fw-bold col-2">Costo</div>
@@ -37,46 +40,91 @@
           </div>
           <hr class="separador">
         </div>
-        <div id="controlesEnvio">
-          <h2>Tipo de envío</h2>
+      </div>
+      <div class="container">
+        <form>
+          <div id="controlesEnvio" class=" mt-5 form-group">
+            <h2>Tipo de envío</h2>
 
-          <div class="form-check">
-            <input class="form-check-input d-block" type="radio" name="TipoDeEnvio" id="Premium" value="option2"
-              checked>
-            <label class="form-check-label" for="Premium">
-              Premium 2 a 5 días (15%)
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input d-block" type="radio" name="TipoDeEnvio" id="Express" value="option2">
-            <label class="form-check-label" for="Express">
-              Express 5 a 8 días (7%)
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input d-block" type="radio" name="TipoDeEnvio" id="Standard" value="option2">
-            <label class="form-check-label" for="Standard">
-              Standard 12 a 15 días (5%)
-            </label>
+            <div class="form-check">
+              <input class="form-check-input d-block" type="radio" name="TipoDeEnvio" id="Premium" value="option2"
+                checked>
+              <label class="form-check-label" for="Premium">
+                Premium 2 a 5 días (15%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input d-block" type="radio" name="TipoDeEnvio" id="Express" value="option2">
+              <label class="form-check-label" for="Express">
+                Express 5 a 8 días (7%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input d-block" type="radio" name="TipoDeEnvio" id="Standard" value="option2">
+              <label class="form-check-label" for="Standard">
+                Standard 12 a 15 días (5%)
+              </label>
+            </div>
           </div>
 
-          <h2 class="mt-5">Dirección de envío</h2>
-          <div class="row">
+          <div class="form-group">
+            <h2 class="mt-5">Dirección de envío</h2>
+            <div class="row">
+              <div class="col-6">
+                <label for="inputCalle">Calle</label>
+                <input type="text" class="form-control" id="inputCalle">
+              </div>
+              <div class="col-3">
+                <label for="inputNumero">Número</label>
+                <input type="number" class="form-control" id="inputNumero">
+              </div>
+            </div>
             <div class="col-6">
-              <label for="inputCalle">Calle</label>
-              <input type="text" class="form-control" id="inputCalle">
+              <label for="inputEsquina">Esquina</label>
+              <input type="text" class="form-control" id="inputEsquina">
             </div>
-            <div class="col-3">
-              <label for="inputNumero">Número</label>
-              <input type="number" class="form-control" id="inputNumero">
-            </div>
-          </div>
-          <div class="col-6">
-            <label for="inputEsquina">Esquina</label>
-            <input type="text" class="form-control" id="inputEsquina">
+            <hr>
           </div>
 
-        </div>
+          <div class="form-group" id="costos">
+            <h2 class="mt-4" >Costos</h2>
+            <div class="card" >
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-9 mt-3">
+                      <h5>Subtotal</h5> 
+                      <h6 class="text-muted">Costo unitario de los productos por sus cantidades</h6>
+                    </div>
+                    <div class="col-3 mt-4">U$D<span id="costoSubtotal"></span></div>
+                  </div>
+                  
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-9 mt-3">
+                      <h5>Costo de envío</h5> 
+                      <h6 class="text-muted">Según el tipo de envío</h6>
+                    </div>
+                    <div class="col-3 mt-4"><span>moco</span></div>
+                  </div>
+                  
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-9 mt-4"><h5 >Total</h5></div>
+                    <div class="col-3 mt-4"><span>moco</span></div>
+                  </div>
+                  
+                </li>
+              </ul>
+            </div>
+              
+          </div>
+          <div class="row mt-3">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Finalizar compra</button>
+          </div>
+        </form>
       </div>
     </body>
   </main>
