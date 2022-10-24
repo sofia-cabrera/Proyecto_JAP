@@ -1,8 +1,8 @@
 const CART_SOLICITUD = CART_INFO_URL + 25801 + EXT_TYPE; //url apra solicitar la información del carrito, harcodeado quedo el usuario porque no es real
 
 let articulos = [];//declaro esta lista vacia para meter los productos del carrito
-let costoSubtotal = 0;
-let costoDeEnvio = "";
+let finalSubtotal= "";
+let finalCostoDeEnvio = "";
 let costoTotal = "";
 
 
@@ -33,8 +33,8 @@ function cambiarCount(a, id) {
     }
     setArticulos();
     mostrarProductosCarrito();
-    calcularSubtotalFinal();
-    mostrarCostos();
+    calcularTotales();
+    
 };
 
 function quitarArticulo(a) {
@@ -42,33 +42,58 @@ function quitarArticulo(a) {
     articulos = seQuedan;
     setArticulos();
     mostrarProductosCarrito();
-    calcularSubtotalFinal();
-    mostrarCostos();
+    calcularTotales();
+    
 };
 
-function calcularSubtotalFinal() {
-   //necesito recorrer la lista de articulos, tomar al cantidad y
-    //precio unitario multiplicarlos y sumarlos
-    //meterlo en una variable global costoSubtotal
-    //calcular el porcentaje de costo de envio en usd
-    //calcular total en usd //let subtotalCambio = (articulo.count * 40);
+function calcularSubtotalFinalyMostrarlo() {
+    let costoSubtotal = 0;
+    htmlContentToAppend = "";
     for (let i = 0; i < articulos.length; i++) {
         let articulo = articulos[i];
-        let subtotal = (articulo.count * articulo.unitCost);
-        
-        console.log (typeof (subtotal));
-        costoSubtotal += subtotal;
+        let subtotal = "";
+        if (articulo.currency==="UYU") {
+            subtotal = (articulo.count * articulo.unitCost)/40;
+            
+        } else {
+            subtotal = (articulo.count * articulo.unitCost);
+        }
+        costoSubtotal += (subtotal);
     };
-     
-};
-function mostrarCostos() {
-    htmlContentToAppend = "";
-    htmlContentToAppend +=`
-    ${costoSubtotal}
-    `
+    htmlContentToAppend +=` ${costoSubtotal}`;
     document.getElementById("costoSubtotal").innerHTML = htmlContentToAppend;
-    //contruir html con cards de bootstrap
-    //para subtotal, costo de envio , total en pesos
+    finalSubtotal= costoSubtotal;
+    calcularTotalyMostrarlo();
+};
+
+function validaCheckbox(){
+    console.log(this.value);
+    if(this.checked){
+        costoDeEnvio= this.value;
+    };
+    calcularCostoEnvioyMostrarlo();
+    calcularTotalyMostrarlo();
+};
+
+function calcularCostoEnvioyMostrarlo() {
+    finalCostoDeEnvio= (finalSubtotal*costoDeEnvio)/100;
+    let htmlContentToAppend = "";
+    htmlContentToAppend +=`USD ${finalCostoDeEnvio}`
+    document.getElementById("costoEnvio").innerHTML =htmlContentToAppend;
+    calcularTotalyMostrarlo();
+};
+
+function calcularTotalyMostrarlo(){
+    costoTotal=finalSubtotal+finalCostoDeEnvio
+    htmlContentToAppend="";
+    htmlContentToAppend +=`USD ${costoTotal}`;
+    document.getElementById("total").innerHTML= htmlContentToAppend;
+};
+
+function calcularTotales(){
+    calcularSubtotalFinalyMostrarlo();
+    calcularCostoEnvioyMostrarlo();
+    calcularTotalyMostrarlo();
 };
 
 function setArticulos() {
@@ -122,15 +147,20 @@ document.addEventListener("DOMContentLoaded", function () {
             setArticulos();
             unificarArticulos();
             mostrarProductosCarrito();
-            calcularSubtotalFinal();
-            mostrarCostos();
+            calcularTotales();
+           
         });
     } else {
         getArticulos();
         unificarArticulos();
         mostrarProductosCarrito();
-        calcularSubtotalFinal();
-        mostrarCostos();
-    }
+        calcularTotales();
+        
+    };
 
 });
+
+//esto lo hago cuando? lo coloco al cargar la pagína? debajo?
+document.getElementById('Premium').addEventListener("change", validaCheckbox, false);
+document.getElementById('Express').addEventListener("change", validaCheckbox, false);
+document.getElementById('Standard').addEventListener("change", validaCheckbox ,false);
