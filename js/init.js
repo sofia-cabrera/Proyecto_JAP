@@ -91,5 +91,5 @@ function recuperarEmail (){
 };
 
 function cerrarSesion(){
-  localStorage.removeItem("email");
+  localStorage.clear();
 };
