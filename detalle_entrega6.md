@@ -10,10 +10,12 @@
 ------------------------------------------------------------------------
 
 2. # modal Forma De Pago<!--HECHO-->
- <!---->
-Añadir un modal que permita establecer una forma de pago e introducir los datos de la misma
-Las mismas deberán ser tarjeta de crédito o transferencia bancaria, y deberán desactivarse los campos de la opción no seleccionada.
+    <!---->
+    Añadir un modal que permita establecer una forma de pago e introducir los datos de la misma
+    Las mismas deberán ser tarjeta de crédito o transferencia bancaria, y deberán desactivarse los campos de la opción no seleccionada.
+.
 -------------------------------------------------------------------------
+----------------------------------------------------------------------
 
 3. # 
 Añade también un botón para confirmar la compra
@@ -30,7 +32,8 @@ Por último, se deberá avisar al usuario cuando la compra se haya realizado exi
 -------------------------------------------------------------------------------
 
 4. # Desafío <!--HECHO-->
-<!--yo ya había puesto el botón quitar producto, ahora olo le agregé
+<!--yo ya había puesto el botón quitar producto, ahora solo le agregé
 que al quitar producto se actualizen los costos totales-->
 A nuestro carrito solamente le falta la funcionalidad de eliminar artículos.
-Desarróllala teniendo en cuenta que se deberán actualizar los totales cada vez que se elimine un artículo.
+Desarróllala teniendo en cuenta que se deberán actualizar los totales
+cada vez que se elimine un artículo.
