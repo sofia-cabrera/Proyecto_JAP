@@ -275,7 +275,7 @@ hr.negrito {
   margin: 5px;
   border: none;
   height: 2px;
-  background: black ;
+  background: black;
   opacity: 1;
 }
 
@@ -283,11 +283,45 @@ hr.divisor {
   margin-top: 3px;
   margin-bottom: 3px;
   border: none;
-  background: black ;
+  background: black;
   opacity: .25;
 }
 
-hr.separador{
+hr.separador {
   opacity: .75;
   margin-bottom: 15px;
 }
+
+/*estilo imagen de perfil*/
+.img-container {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  object-fit: scale-down;
+  border-radius: 50%;
+  padding: 0%;
+}
+
+
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.img-fondo-login {
+  background-image: url("../img/fondo_login.jpg");
+  background-size: cover;
+  height : 600px;
+}
+
