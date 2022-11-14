@@ -13,7 +13,7 @@ codigo viejo del login
       <!--class form-group bootstrap-->
       <div>
         <legend>Usuario</legend>
-        <input type="email" id="email_addr" name="direccion-correo" required placeholder="Escriba aquí su email"
+          <input type="email" id="email_addr" name="direccion-correo" required       placeholder="Escriba aquí su email"
           size="30" />
         <!-- type="email" indica que el contenido ingresado debe ser un email valido, tener formato de email-->
       </div>
@@ -29,8 +29,9 @@ codigo viejo del login
       <!--<div class="g-signin2 " data-onsuccess="onSignIn"></div>-->
     </div>
   </div>
------------------------------------------------------------------
 
+  
+-----------------------------------------------------------------
 -----------------------------------------------------------------
 
 
@@ -44,9 +45,16 @@ para acceder a la página necesitas estar logeado
 - al cargar la pagina consulto si existe email en el local
 - sino abrir un modal donde la persona pueda loguearse en el acto
 
+# la solucion que hice
+al intentar entrar al perfil, si hay email en el local podes acceder 
+sino te redirecciona al login con una alerta y al ingresar te envia al perfil
+<!---aproveche y agregue esta funcionalida personalizada al carrito-->
+
+------------------------------------------------------------------------------------
+
 <SI YA ESTABAS LOGUEADO>
 carga el html con los campos
-solo el email va a estar completo con el dato de login
+la primer vez solo el email va a estar completo con el dato de login
 traigo del local el email igual que hago para la navBar
 
 el <BOTÓN GUARDAR CAMBIOS> es el que verfica que los datos obigatrios estén completos
