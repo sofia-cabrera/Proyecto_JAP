@@ -320,8 +320,12 @@ hr.separador {
 }
 
 .img-fondo-login {
-  background-image: url("../img/fondo_login.jpg");
+  background-image: url("../img/fondo-login.jpg");
   background-size: cover;
-  height : 600px;
+  height : 700px;
 }
 
+.logueate {
+  background-color: #46197c;
+  color :rgba(255, 255, 255, 0.5);
+}

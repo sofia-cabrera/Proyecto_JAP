@@ -81,7 +81,6 @@ function navBar(){
 document.getElementById("navBar").innerHTML = barraNavegacion;
 };
 
-
 function recuperarEmail (){
   if (localStorage.getItem ("email")){
     email= localStorage.getItem("email");

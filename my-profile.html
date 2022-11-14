@@ -8,7 +8,15 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  
+  <script>
+    if(localStorage.getItem("email")==null){
+      let loginFlag = "mostrar alerta perfil";
+      let origen = "my-profile.html";
+      localStorage.setItem("loginFlag", loginFlag);
+      localStorage.setItem("origen", origen );
+      window.location.href=('index.html');
+    }
+  </script>
 </head>
 
 <body>
@@ -16,7 +24,6 @@
 
   <main>
     <div class="container">
-      
 
       <form id="form" class="row mt-4 needs-validation" novalidate>
         <div class="row">
@@ -32,7 +39,7 @@
 
             <!-- NOMBRE -->
             <div class="form-floating mb-3 col-sm-6">
-              <input type="text" class="form-control" id="nombre1" placeholder="Escribe aquí tu nombre" required>
+              <input type="text" class="form-control" id="nombre1" placeholder="Escribe aquí" required>
               <label for="nombre1">Primer nombre</label>
               <div class="invalid-feedback">
                 Debe ingresar un nombre
@@ -40,16 +47,15 @@
             </div>
 
             <!-- SEGUNDO NOMBRE -->
-
             <div class="form-floating mb-3 col-sm-6">
-              <input type="text" class="form-control" id="nombre2" placeholder="Escribe aquí tu segundo nombre">
+              <input type="text" class="form-control" id="nombre2" placeholder="Escribe aquí">
               <label for="nombre2" class="form-label">Segundo nombre</label>
             </div>
 
 
             <!-- APELLIDO -->
             <div class="form-floating mb-3 col-sm-6">
-              <input type="text" class="form-control" id="apellido1" placeholder="Escribe aquí tu apellido" required>
+              <input type="text" class="form-control" id="apellido1" placeholder="Escribe aquí" required>
               <label for="apellido1">Primer apellido</label>
               <div class="invalid-feedback">
                 Debe ingresar un apellido
@@ -58,14 +64,14 @@
 
             <!-- SEGUNDO APELLIDO -->
             <div class="form-floating mb-3 col-sm-6">
-              <input type="text" class="form-control" id="apellido2" placeholder="Escribe aquí tu segundo apellido">
+              <input type="text" class="form-control" id="apellido2" placeholder="Escribe aquí ">
               <label for="apellido2">Segundo apellido</label>
             </div>
 
 
             <!-- EMAIL -->
             <div class="form-floating mb-3 col-sm-6">
-              <input type="email" class="form-control" id="email" placeholder="Escribe aquí tu email" required>
+              <input type="email" class="form-control" id="email" placeholder="Escribe aquí" required>
               <label for="email">Email</label>
               <div class="invalid-feedback">
                 Debe ingresar un correo valido
