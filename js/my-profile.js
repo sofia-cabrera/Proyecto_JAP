@@ -1,6 +1,6 @@
 let emailDelUsuario = "";
 let usuarios = [];
-let imgComoString = "";
+
 
 let nuevosDatos = {
   nombre: "",
@@ -31,16 +31,23 @@ function noValidate(input) {
     input.classList.remove('is-valid', 'is-invalid')
   }
 };
-function validacionesForm() {
 
+
+function validacionesForm() {
   let emailNuevo = document.getElementById("email");
-  let emailYaExiste = 0;
-  usuarios.forEach((usuario) => {
-    if (usuario.email == emailNuevo.value) {
-      emailYaExiste = 1;
-      console.log("se repite el email", emailYaExiste);
-    }
-  });
+  let emailSeRepite = 0;
+  let emailAnteriorIgualNuevo = 0;
+  if (emailNuevo.value === emailDelUsuario) {
+    //emailAnteriorIgualNuevo=1;
+    emailSeRepite = 0;
+  } else {
+    usuarios.forEach((usuario) => {
+      if (usuario.email == emailNuevo.value) {
+        emailSeRepite = 1;
+        console.log("se repite el email", emailSeRepite);
+      }
+    });
+  }
 
 
   let validos = 0;
@@ -50,7 +57,7 @@ function validacionesForm() {
       noValidate(el);//acá le indico que no tiene que validar los campos que no son requeridos
     } else {
       //si son los requeridos
-      if (el.id === "email" && emailYaExiste==1) {
+      if (el.id === "email" && emailSeRepite == 1) {
         invalidateInput(el);
         alert('ya existe una cuenta con ese email');
       } else {
@@ -72,8 +79,6 @@ function validacionesForm() {
     }
   })
 
-
-
   console.log("Cantidad de campos requeridos validos", validos);
   if (validos == 3) {
     guardarEnUsuariosNuevosDatosDePerfil();
@@ -94,7 +99,7 @@ function guardarEnUsuariosNuevosDatosDePerfil() {
   };
 
   //actualiza los datos de perfil
-  let seRepite = 0;
+  
   usuarios.forEach((usuario) => {
     if (usuario.email == emailDelUsuario) {
       usuario.nombre = nuevosDatos.nombre;
@@ -104,20 +109,17 @@ function guardarEnUsuariosNuevosDatosDePerfil() {
       usuario.email = nuevosDatos.email;
       usuario.img = nuevosDatos.img;
       usuario.telefono = nuevosDatos.telefono;
-      seRepite = 1;
     }
 
   })
-  if (seRepite == 0) { usuarios.push(nuevosDatos) }
   console.log(nuevosDatos);
   //actualiza el email del usuario del local el que uso en la navBar
   if (nuevosDatos.email !== emailDelUsuario) {
     emailDelUsuario = nuevosDatos.email;
-    localStorage.setItem("email", emailDelUsuario)
+    localStorage.setItem("email", emailDelUsuario);
   }
 
 };
-
 
 //esta funcion me permite pasar la imagen a string y sustituir el url de la imagen en pantalla
 function encodeImageFileAsURL() {
@@ -165,6 +167,7 @@ function recuperarEmailEnPerfil() {
     contenedorEmail.value = emailDelUsuario;
   };
 };
+
 //al cargar la pagina cargar datos preexistentes si ya guardé
 function cargarDatosDePerfil() {
   let contenedorNombre = document.getElementById("nombre1");
@@ -201,10 +204,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('form').addEventListener('submit', function (event) {
     event.preventDefault();
     event.stopPropagation();
-    validacionesForm();
+    validacionesForm();//valida y si todo esta bien actualiza la lista de usuarios para guardarla
     setUsuarios();//guardo en el local la lista de usuarios con la modificación correspondientes
-    recuperarEmail();
-
+    recuperarEmail();//esto en caso de que el email haya sido modificado
 
   });
 });

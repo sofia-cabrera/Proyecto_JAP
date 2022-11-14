@@ -4,6 +4,7 @@ Modificaciones en el login
   al submit (que si se valida solo redirige no envia formulario )
 - al cerrar cesión no clear al local, solo remove el email
     (así persisten los datos del usuario que corresponden)
+- al iniciar sesion revisa la lista de usuarios que trae del local y para ver si no estas te crea un usuario
 -----------------------------------------------------------------
 codigo viejo del login
 <div id="logotipo">
@@ -37,27 +38,10 @@ codigo viejo del login
 
 para acceder a la página necesitas estar logeado
 (actualmente si te logueas se guarda el email en el localStorage)
-# primer solución <!--lo literal-->
+# solución <!--lo literal-->
 - al cargar la pagina consulto si existe email en el local
-- sino mostrar un modal o alerta que indica el problema ("Para acceder a tu perfil primero debes registrarte") redirigir al loggin 
-
-# segunda solución <!--esta es mi favorita-->
-- al cargar la pagina consulto si existe email en el local
-- sino abrir un modal donde la persona pueda loguearse en el acto
-
-# la solucion que hice
-al intentar entrar al perfil, si hay email en el local podes acceder 
-sino te redirecciona al login con una alerta y al ingresar te envia al perfil
+- sino mostrar un modal o alerta que indica el problema ("Para acceder a tu perfil primero debes registrarte") redirigir al loggin y al ingresar te envia al origen
 <!---aproveche y agregue esta funcionalida personalizada al carrito-->
 
 ------------------------------------------------------------------------------------
 
-<SI YA ESTABAS LOGUEADO>
-carga el html con los campos
-la primer vez solo el email va a estar completo con el dato de login
-traigo del local el email igual que hago para la navBar
-
-el <BOTÓN GUARDAR CAMBIOS> es el que verfica que los datos obigatrios estén completos
-VALIDACIONES
-y guarda al usuario en el local para que al volver al ingresar se muestren estos datos 
-como valores de los input

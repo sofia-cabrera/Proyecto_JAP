@@ -1,9 +1,18 @@
-// validar que los campos de email y contraseña no esten vacios
-//para que el botón Ingresar redireccione a la portada
 
+let usuarios = [];
 let email = document.getElementById('email_addr');
 let password = document.getElementById('password');
 let loginFlag = "";
+
+let nuevosDatos = {
+    nombre: "",
+    segundoNombre: "",
+    apellido: "",
+    segundoApellido: "",
+    email: "",
+    img: "",
+    telefono: ""
+};
 
 //validaciones inputs
 function validateInput(input) {
@@ -23,21 +32,21 @@ function invalidateInput(input) {
 
 
 //alerta que aparece si quisimos entrar al perfil sin loguearnos
-function mostrarAlerta(){
-    let alertToAppend ="";
-    if(loginFlag == "mostrar alerta perfil"){
+function mostrarAlerta() {
+    let alertToAppend = "";
+    if (loginFlag == "mostrar alerta perfil") {
         alertToAppend += `
         <div id="alert01" class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong>Debes loguearte para poder acceder a tu perfil</strong>
           <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         `;
-        
+
         document.getElementById("alerta").innerHTML = alertToAppend;
         localStorage.removeItem("loginFlag");
     }
 
-    if(loginFlag == "mostrar alerta carrito"){
+    if (loginFlag == "mostrar alerta carrito") {
         alertToAppend += `
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Debes loguearte para poder acceder a tu carrito</strong>
@@ -51,6 +60,47 @@ function mostrarAlerta(){
 };
 
 
+//nos dice si el usuario ya entró antes
+function siUsuarioNoExisteAgregarUsuario() {
+    let seRepite = 0;
+    usuarios.forEach((usuario) => {
+        console.log(usuario.email);
+        console.log(email.value);
+        if (usuario.email == email.value) {
+            seRepite = 1;
+            console.log(seRepite);
+        }
+    });
+    if (seRepite == 0) {
+        crearNuevoUsuario();
+    }
+};
+
+function crearNuevoUsuario() {
+    let nuevosDatos = {
+        nombre: "",
+        segundoNombre: "",
+        apellido: "",
+        segundoApellido: "",
+        email: (email.value),
+        img: "img/img_perfil.png",
+        telefono: ""
+    };
+    usuarios.push(nuevosDatos);
+}
+
+function getUsuarios() {
+    if (localStorage.getItem("usuarios")) {
+        usuarios_json = localStorage.getItem("usuarios");
+        usuarios = JSON.parse(usuarios_json);
+    }
+};
+function setUsuarios() {
+    let usuarios_json = JSON.stringify(usuarios);
+    localStorage.setItem("usuarios", usuarios_json);
+};
+  
+
 //gurdar en el localStorage email
 
 function setEmail(email) {
@@ -58,8 +108,11 @@ function setEmail(email) {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+    getUsuarios();
+
+
     //esto identifica el caso de que nos haya redirigido por querer acceder sin loguearnos
-    if (localStorage.getItem("loginFlag")){
+    if (localStorage.getItem("loginFlag")) {
         loginFlag = localStorage.getItem("loginFlag");
         mostrarAlerta();
     }
@@ -90,6 +143,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         if (email.checkValidity() && password.checkValidity()) {
             setEmail(email.value);
+            siUsuarioNoExisteAgregarUsuario();
+            setUsuarios();
+
             if(localStorage.getItem("origen")){
                 origen= localStorage.getItem("origen");
                 window.location.href=(origen);//redireciona al origen
