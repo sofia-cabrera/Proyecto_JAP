@@ -68,7 +68,7 @@ function navBar(){
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item" href="cart.html">Carrito</a></li>
                   <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
-                  <li><a onclick="cerrarSesion()" class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+                  <li><a id="cerrar" class="dropdown-item" href="index.html">Cerrar sesión</a></li>
                 </ul>
             </div>
           </li>
@@ -81,6 +81,7 @@ function navBar(){
 document.getElementById("navBar").innerHTML = barraNavegacion;
 };
 
+//onclick="cerrarSesion()"
 function recuperarEmail (){
   if (localStorage.getItem ("email")){
     email= localStorage.getItem("email");
@@ -92,3 +93,28 @@ function recuperarEmail (){
 function cerrarSesion(){
   localStorage.removeItem("email");
 };
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+
+// Inicializa aplicacion Firebase
+const app = initializeApp(firebaseConfig);
+
+// Inicializa autenticacion mediante Firebase
+const auth = getAuth();
+
+document.getElementById("cerrar").addEventListener("click", function(e) {
+    signOut(auth).then(() => {
+
+        localStorage.removeItem('usuario');
+
+        console.log("Cierrar sesion");
+        
+        // location.reload();
+
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    });
+});
