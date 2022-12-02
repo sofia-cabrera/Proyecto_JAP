@@ -108,8 +108,8 @@ function setEmail(email) {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+    
     getUsuarios();
-
 
     //esto identifica el caso de que nos haya redirigido por querer acceder sin loguearnos
     if (localStorage.getItem("loginFlag")) {
