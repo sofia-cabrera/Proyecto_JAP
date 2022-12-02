@@ -94,26 +94,43 @@ function cerrarSesion(){
   localStorage.removeItem("email");
 };
 
-
+// Importa scripts de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
-import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+import { getAuth, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
 
 // Inicializa configuracion de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyC8T8m1RUUP-6_xLLS3dsYfdeTVubYwoBc",
-  authDomain: "e-commercee-ac057.firebaseapp.com",
-  projectId: "e-commercee-ac057",
-  storageBucket: "e-commercee-ac057.appspot.com",
-  messagingSenderId: "195482324927",
-  appId: "1:195482324927:web:349a03cd9d1b0400391b0a"
-};
-
+    apiKey: "AIzaSyC8T8m1RUUP-6_xLLS3dsYfdeTVubYwoBc",
+    authDomain: "e-commercee-ac057.firebaseapp.com",
+    projectId: "e-commercee-ac057",
+    storageBucket: "e-commercee-ac057.appspot.com",
+    messagingSenderId: "195482324927",
+    appId: "1:195482324927:web:349a03cd9d1b0400391b0a"
+  };
 
 // Inicializa aplicacion Firebase
 const app = initializeApp(firebaseConfig);
 
 // Inicializa autenticacion mediante Firebase
 const auth = getAuth();
+
+// Agrega autenticacion con Google
+const google = new GoogleAuthProvider();
+
+
+onAuthStateChanged(auth, (user) => {
+    let usuario = undefined;
+
+    if (user) {
+        usuario = {
+            nombre: user.displayName,
+            correo: user.email
+        }
+
+        console.log(usuario);
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+    }
+});
 
 document.getElementById("cerrar").addEventListener("click", function(e) {
     signOut(auth).then(() => {
