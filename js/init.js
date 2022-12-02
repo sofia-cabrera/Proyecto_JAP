@@ -81,7 +81,7 @@ function navBar(){
 document.getElementById("navBar").innerHTML = barraNavegacion;
 };
 
-//onclick="cerrarSesion()"
+
 function recuperarEmail (){
   if (localStorage.getItem ("email")){
     email= localStorage.getItem("email");
@@ -89,6 +89,11 @@ function recuperarEmail (){
     document.getElementById ("containerEmail").innerHTML= email;
   };
 };
+
+document.getElementById('cerrar').addEventListener('click', function(event){
+  cerrarSesion();
+})
+
 
 function cerrarSesion(){
   localStorage.removeItem("email");
