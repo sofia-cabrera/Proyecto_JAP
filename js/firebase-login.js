@@ -25,7 +25,7 @@ const google = new GoogleAuthProvider();
 document.getElementById("iniciarGoogle").addEventListener("click", function(e) {
     console.log("Iniciando sesion");
 
-    signInWithPopup(auth, google)
+    /*signInWithPopup(auth, google)
         .then((result) => {
             // Se adquiere un Token de Acceso
             const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -47,7 +47,7 @@ document.getElementById("iniciarGoogle").addEventListener("click", function(e) {
             // Aunque no hacemos nada con esta info por ahora
             console.log(errorCode);
             console.log(errorMessage);
-        });
+        });*/
 });
 
 onAuthStateChanged(auth, (user) => {
